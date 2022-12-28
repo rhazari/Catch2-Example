@@ -9,7 +9,7 @@ public:
 
     double getAmount(const int& account_id) const;
 
-    void depositAmount(const double& amount, const int& accountId) const;
+    void depositAmount(const double& depositAmount, const int& accountId) const;
 
-    void withDrawAmount(const double& amount, const int& accountId) const;
+    void withDrawAmount(const double& withDrawAmount, const int& accountId) const;
 };

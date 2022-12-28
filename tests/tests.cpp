@@ -45,3 +45,17 @@ TEST_CASE("Bank Account app depositAmount()") {
 		REQUIRE(bankApp.getAmount(1) == 2202);
 	}
 }
+
+TEST_CASE("Bank Account app withDrawAmount()") {
+    std::vector<double> accounts = {1001, 2002, 3002, 4001};
+    BankApp bankApp(accounts);
+
+	SECTION("Should fetch the amount for account id 1") {
+		CHECK_NOTHROW(bankApp.withDrawAmount(200, 0));
+		REQUIRE(bankApp.getAmount(0) == 801);
+	}
+
+	SECTION("Withdraw amount greater than balance") {
+		CHECK_THROWS(bankApp.withDrawAmount(2001, 0));
+	}
+}
